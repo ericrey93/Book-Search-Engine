@@ -17,7 +17,7 @@ Once the repo has been forked over to your local computer, please make sure to i
 
 ## Deployment
 
-[Here]() is the link to the deployed app on Heroku.
+[Here](https://mighty-cove-40649.herokuapp.com/) is the link to the deployed app on Heroku.
 
 ## License
 
