@@ -35,11 +35,10 @@ const resolvers = {
           },
 
 
-    addUser: async (parent, args) => {
-        const user = await User.create(args);
-        const token = signToken(user);
-  
-        return { token, user };
+        addUser: async (parent, { username, email, password }) => {
+            const user = await User.create({ username, email, password });
+            const token = signToken(user);
+            return { token, user };
     },
 
     saveBook: async (parent, { bookData }, context) => {
@@ -54,7 +53,7 @@ const resolvers = {
         throw new AuthenticationError("You must have an account to save books!");
     },
 
-    removeBook: async (parent, {bookId}, context) => {
+    removeBook: async (parent, { bookId }, context) => {
         if(context.user) {
             const removingBook = await User.findOneAndUpdate(
                 {_id: context.user._id},
